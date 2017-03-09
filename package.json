@@ -18,6 +18,7 @@
     "amqplib": "^0.5.1",
     "express": "^4.14.1",
     "mongodb": "^2.2.22",
+    "newrelic": "^1.37.2",
     "pg": "6.1.2"
   },
   "devDependencies": {}

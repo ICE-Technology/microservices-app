@@ -1,3 +1,4 @@
+require('newrelic');
 var pg = require ('pg');
 var amqp = require('amqplib/callback_api');
 var MongoClient = require('mongodb').MongoClient;
@@ -27,7 +28,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
             Object.keys(pl).forEach(function (key) {
                 console.log(key, pl[key]);
 				//y=JSON.stringify(key,pl[key]);
-				//y=JSON.parse(msg.payload);
+				//y=JSON.parse(msg.payload);;
 			
 				
  

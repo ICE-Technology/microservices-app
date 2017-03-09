@@ -54,15 +54,18 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
             });
 			 amqp.connect('amqp://uzoryisw:YoZBZlxwbUzyUTLe5nkxdBMBTtTfUxqu@salamander.rmq.cloudamqp.com/uzoryisw', function(err, conn) {
   conn.createChannel(function(err, ch) {
-    var q = 'SalesforceQ';
+    //var q = 'SalesforceQ';
+	var ex = 'Microservice';
 	//var p1;
 	  //var x=JSON.parse(msg.payload);
        var msg1 ={};
        msg1=JSON.parse(msg.payload);
 	   msg2=JSON.stringify(msg1);
-    ch.assertQueue(q, {durable: false});
+    //ch.assertQueue(q, {durable: false});
+	ch.assertExchange(ex, 'fanout', {durable: true});
+    ch.publish(ex, '', new Buffer(msg2));
     // Note: on Node 6 Buffer.from(msg) should be used.
-    ch.sendToQueue(q, new Buffer(msg2));
+    //ch.sendToQueue(q, new Buffer(msg2));
     console.log(" [x] Sent %s", msg2);
   });
   //setTimeout(function() { conn.close(); process.exit(0) }, 500);

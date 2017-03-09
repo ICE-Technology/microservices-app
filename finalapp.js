@@ -62,7 +62,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
        msg1=JSON.parse(msg.payload);
 	   msg2=JSON.stringify(msg1);
     //ch.assertQueue(q, {durable: false});
-	ch.assertExchange(ex, 'fanout', {durable: true});
+	ch.assertExchange(ex, 'fanout', {durable: false});
     ch.publish(ex, '', new Buffer(msg2));
     // Note: on Node 6 Buffer.from(msg) should be used.
     //ch.sendToQueue(q, new Buffer(msg2));

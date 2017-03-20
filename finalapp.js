@@ -27,7 +27,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
             console.log("*========*");
             Object.keys(pl).forEach(function (key) {
                 console.log(key, pl[key]);
-				//y=JSON.stringify(key,pl[key]);
+				
 				
 			
 				

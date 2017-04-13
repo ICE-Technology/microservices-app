@@ -57,7 +57,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   conn.createChannel(function(err, ch) {
     //var q = 'SalesforceQ';
 	var ex = 'Microservice';
-	//var p1;
+	
 	  //var x=JSON.parse(msg.payload);
        var msg1 ={};
        msg1=JSON.parse(msg.payload);

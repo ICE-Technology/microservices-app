@@ -32,7 +32,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 			
 				
  
-				// insert into mlab 
+				// insert into mlab collection
 				var insertDocument = function(db, callback) {
 				   db.collection('Microservice').insertOne( {
 					  "event":{
